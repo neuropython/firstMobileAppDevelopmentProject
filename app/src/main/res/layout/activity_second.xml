@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FFF0CE"
     tools:context=".SecondActivity">
 
     <Button
@@ -11,7 +12,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="252dp"
-        android:backgroundTint="#2196F3"
+        android:backgroundTint="#0C356A"
         android:text="Select"
         app:iconTint="#2196F3"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -19,12 +20,18 @@
         app:layout_constraintHorizontal_bias="0.489"
         app:layout_constraintStart_toStartOf="parent" />
 
+    <ImageView
+        android:id="@+id/myImageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/my_image" />
+
     <Button
         android:id="@+id/getRichButton"
         android:layout_width="248dp"
         android:layout_height="86dp"
         android:layout_marginBottom="44dp"
-        android:backgroundTint="#BF0041"
+        android:backgroundTint="#0C356A"
         android:text="GET RICH!!!"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         app:cornerRadius="@android:dimen/notification_large_icon_height"
@@ -34,24 +41,17 @@
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="414dp"
-        android:layout_height="213dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/pobrane" />
-
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
+        android:fontFamily="monospace"
         android:text="Select your lucky number"
+        android:textColor="#0174BE"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+        tools:layout_editor_absoluteY="225dp" />
 
     <NumberPicker
         android:id="@+id/picker1"
@@ -59,7 +59,7 @@
         android:layout_height="153dp"
         android:layout_gravity="center"
         android:layout_marginTop="12dp"
-        android:solidColor="#2196F3"
+        android:solidColor="#FFC436"
         app:layout_constraintBottom_toTopOf="@+id/selectButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
@@ -71,7 +71,10 @@
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:fontFamily="monospace"
         android:text="Your's numbers"
+        android:textColor="#0174BE"
+        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/getRichButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
@@ -83,10 +86,23 @@
         android:id="@+id/selectedNmbView"
         android:layout_width="292dp"
         android:layout_height="73dp"
+        android:fontFamily="monospace"
         android:text="TextView"
+        android:textColor="#0174BE"
+        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/getRichButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView4" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/textView2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/picsvg" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

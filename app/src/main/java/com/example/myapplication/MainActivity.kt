@@ -6,6 +6,8 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Switch
+import android.widget.ImageView as imageView
+import com.caverock.androidsvg.SVG
 
 
 
@@ -30,6 +32,9 @@ class MainActivity : AppCompatActivity() {
         val inputName = findViewById<EditText>(R.id.editTextText)
         val inputMail = findViewById<EditText>(R.id.editTextTextEmailAddress)
         val inputPhote = findViewById<EditText>(R.id.editTextPhone)
+        val imageView = findViewById<imageView>(R.id.imageView3)
+
+
         buttonGame.setOnClickListener {
 
             var name = inputName.text.toString()

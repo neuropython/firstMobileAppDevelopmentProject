@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.NumberPicker
 import android.widget.TextView
+import com.caverock.androidsvg.SVG
 
 class SecondActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
