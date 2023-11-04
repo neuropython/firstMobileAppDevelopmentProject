@@ -7,7 +7,6 @@
     android:background="#FFF0CE"
     tools:context=".MainActivity">
 
-
     <Button
         android:id="@+id/selectButton"
         android:layout_width="188dp"
@@ -26,7 +25,7 @@
         android:id="@+id/editTextText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="252dp"
+        android:layout_marginTop="32dp"
         android:ems="10"
         android:fontFamily="monospace"
         android:inputType="text"
@@ -39,21 +38,29 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="236dp"
         android:fontFamily="monospace"
         android:text="Welcome in lotto game, please provide informations about yourself"
         android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         android:textColor="#0174BE"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/editTextText"
+        app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="0dp" />
+        tools:layout_editor_absoluteX="2dp" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        tools:ignore="MissingConstraints" />
 
     <EditText
         android:id="@+id/editTextTextEmailAddress"
@@ -61,6 +68,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:ems="10"
+        android:fontFamily="monospace"
         android:inputType="textEmailAddress"
         android:text="e-mail adress"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
@@ -78,6 +86,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
+        android:fontFamily="monospace"
         android:inputType="phone"
         android:text="phone number"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
@@ -120,11 +129,13 @@
 
     <ImageView
         android:id="@+id/imageView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="413dp"
+        android:layout_height="187dp"
         app:layout_constraintBottom_toTopOf="@+id/textView"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/picsvg" />
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/lotto" />
 </androidx.constraintlayout.widget.ConstraintLayout>

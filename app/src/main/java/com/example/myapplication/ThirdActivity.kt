@@ -3,9 +3,12 @@ package com.example.myapplication
 import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.widget.Button
 import android.widget.TextView
-import com.caverock.androidsvg.SVG
+import com.daimajia.androidanimations.library.Techniques
+import com.daimajia.androidanimations.library.YoYo
+import kotlinx.coroutines.runBlocking
 
 class ThirdActivity : AppCompatActivity() {
     @SuppressLint("SetTextI18n")
@@ -17,7 +20,7 @@ class ThirdActivity : AppCompatActivity() {
 
 
         val numberText = findViewById<TextView>(R.id.numView)
-        numberText.text = "Here are my numbers: \n ${numbersArray?.joinToString("           ")}"
+        numberText.text = "Here are my numbers: \n ${numbersArray?.joinToString(" ")}"
 
         val number1 = findViewById<TextView>(R.id.number1)
         val number2 = findViewById<TextView>(R.id.number2)
@@ -26,28 +29,52 @@ class ThirdActivity : AppCompatActivity() {
         val number5 = findViewById<TextView>(R.id.number5)
         val number6 = findViewById<TextView>(R.id.number6)
 
+        val winningLoosing = findViewById<TextView>(R.id.WinView)
+
+
+        val numberList = mutableListOf<TextView>(
+            number1, number2, number3, number4, number5, number6
+        )
 
         val Button = findViewById<Button>(R.id.button)
         Button.setOnClickListener {
-            val range = 0..5
-            val winningNumbersList = MutableList(50) { it }
-            val winningList = mutableListOf<Int>()
-            for (number in range) {
-                val random = winningNumbersList.random()
-                winningNumbersList.remove(random)
-                winningList.add(random)
-                println(winningList)
+                val range = 0..5
+                val winningNumbersList = MutableList(50) { it }
+                val winningList = mutableListOf<Int>()
+                var i = 0
+                for (number in range) {
+                    val random = winningNumbersList.random()
+                    winningNumbersList.remove(random)
+                    winningList.add(random)
+                }
+            runBlocking {
+                for (ball in numberList) {
+                    ball.visibility = View.VISIBLE
+                    ball.text = "${winningList[i]}"
+                    YoYo.with(Techniques.Landing).duration(1000).playOn(ball)
+                i++
+            }}
 
-        }
-            number1.text = "${winningList[0]}"
-            number2.text = "${winningList[1]}"
-            number3.text = "${winningList[2]}"
-            number4.text = "${winningList[3]}"
-            number5.text = "${winningList[4]}"
-            number6.text = "${winningList[5]}"
 
-        }
+                for (number in numbersArray!!) {
+                    for (ball in numberList) {
+                        if (number == ball.text.toString().toInt()) {
+                            YoYo.with(Techniques.Wobble).duration(3000).playOn(ball)
+                        }
+                    }
+                    if (numbersArray == winningList) {
+                        winningLoosing.text = "YOU WON!!!"
+                        YoYo.with(Techniques.Flash).duration(3000).playOn(winningLoosing)
+                    } else {
+                        winningLoosing.text = "YOU LOST!!!"
+                        YoYo.with(Techniques.Shake).duration(3000).playOn(winningLoosing)
+                    }
 
-    }
 
-}
+                }
+            }
+
+        }}
+
+
+

@@ -1,12 +1,12 @@
 package com.example.myapplication
 
+
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.NumberPicker
 import android.widget.TextView
-import com.caverock.androidsvg.SVG
 
 class SecondActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -29,7 +29,7 @@ class SecondActivity : AppCompatActivity() {
         val selectButton = findViewById<Button>(R.id.selectButton)
         val getRichButton = findViewById<Button>(R.id.getRichButton)
         getRichButton.isEnabled = false
-        val numbersArray = IntArray(6)
+        val numbersArray = MutableList<Int>(6) { 0 }
         var i = 0
         var text = ""
         numbersText.text = text
@@ -38,7 +38,7 @@ class SecondActivity : AppCompatActivity() {
             if (selectedNumber !in numbersArray) {
                 numbersArray[i++] = selectedNumber
                 text += selectedNumber.toString()
-                text = "$text           "
+                text = "$text   "
                 numbersText.text = text
             }
 
@@ -55,6 +55,7 @@ class SecondActivity : AppCompatActivity() {
                 val intent = Intent(this,ThirdActivity::class.java )
                 intent.putExtra("SELECTNUMBERS",numbersArray)
                 startActivity(intent)
+//            Make class
             }
         }
 

@@ -7,8 +7,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Switch
 import android.widget.ImageView as imageView
-import com.caverock.androidsvg.SVG
-
+import java.io.IOException
 
 
 class MainActivity : AppCompatActivity() {
@@ -32,7 +31,6 @@ class MainActivity : AppCompatActivity() {
         val inputName = findViewById<EditText>(R.id.editTextText)
         val inputMail = findViewById<EditText>(R.id.editTextTextEmailAddress)
         val inputPhote = findViewById<EditText>(R.id.editTextPhone)
-        val imageView = findViewById<imageView>(R.id.imageView3)
 
 
         buttonGame.setOnClickListener {

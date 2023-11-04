@@ -11,6 +11,7 @@
     <TextView
 
         android:id="@+id/number3"
+        android:visibility="gone"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:background="@drawable/oval_button_background"
@@ -25,6 +26,7 @@
 
     <TextView
         android:id="@+id/number4"
+        android:visibility="gone"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:background="@drawable/oval_button_background"
@@ -39,6 +41,7 @@
 
     <TextView
         android:id="@+id/number5"
+        android:visibility="gone"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_marginEnd="76dp"
@@ -53,18 +56,17 @@
 
     <Button
         android:id="@+id/button"
-        android:layout_width="278dp"
-        android:layout_height="121dp"
+        android:layout_width="279dp"
+        android:layout_height="87dp"
         android:backgroundTint="#0C356A"
         android:fontFamily="monospace"
         android:stateListAnimator="@android:anim/decelerate_interpolator"
         android:text="GET NUMBERS!!!"
-        android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:textColor="#FFFFFF"
-        android:textSize="34sp"
+        android:textSize="16sp"
         android:textStyle="bold"
-        android:typeface="sans"
+        android:typeface="monospace"
         app:cornerRadius="@android:dimen/thumbnail_width"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
@@ -87,6 +89,7 @@
 
     <TextView
         android:id="@+id/number1"
+        android:visibility="gone"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_marginStart="16dp"
@@ -101,6 +104,7 @@
 
     <TextView
         android:id="@+id/number2"
+        android:visibility="gone"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:background="@drawable/oval_button_background"
@@ -115,6 +119,7 @@
 
     <TextView
         android:id="@+id/number6"
+        android:visibility="gone"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:background="@drawable/oval_button_background"
@@ -133,8 +138,25 @@
         android:layout_height="272dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/picsvg"
-        tools:layout_editor_absoluteY="2dp" />
+        app:srcCompat="@drawable/lotto"
+        tools:layout_editor_absoluteY="2dp"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/WinView"
+        android:layout_width="314dp"
+        android:layout_height="182dp"
+        android:fontFamily="monospace"
+        android:gravity="center"
+        android:text="TextView"
+        android:textAlignment="center"
+
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/numView"
+        tools:layout_editor_absoluteX="48dp"
+        tools:ignore="MissingConstraints" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

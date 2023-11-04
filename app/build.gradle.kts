@@ -7,6 +7,7 @@ android {
     namespace = "com.example.myapplication"
     compileSdk = 33
 
+
     defaultConfig {
         applicationId = "com.example.task3"
         minSdk = 24
@@ -44,5 +45,7 @@ dependencies {
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
-    implementation ("com.caverock:androidsvg:1.4")
+    implementation ("com.daimajia.easing:library:2.0@aar")
+    implementation ("com.daimajia.androidanimations:library:2.3@aar")
+
 }
