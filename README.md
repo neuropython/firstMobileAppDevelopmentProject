@@ -4,7 +4,7 @@
 
 LottoApp is a simple and fun application that helps you pick lucky numbers for your next lotto game. With a user-friendly interface and cool animations, you'll have a great time using this app. Test your luck, see if you've won, and maybe even hit the jackpot!
 
-## Features
+## Features!
 
 - Generate a set of random lotto numbers.
 - Compare your chosen numbers with the winning ones.
@@ -13,17 +13,18 @@ LottoApp is a simple and fun application that helps you pick lucky numbers for y
 
 ## Screenshots
 
-![Screenshot 1](screenshot1.png)
-![Screenshot 2](screenshot2.png)
-![Screenshot 3](screenshot3.png)
+[screenshot1](https://github.com/neuropython/mobile_app_dev/assets/128989743/7927c004-9e02-4c56-9942-91a067276452)
+
+![screenshot2](https://github.com/neuropython/mobile_app_dev/assets/128989743/2d345527-a66e-42f5-9677-1ac12582fa33)
+
+![screenshot3](https://github.com/neuropython/mobile_app_dev/assets/128989743/5c6afcb0-95b5-4029-ad21-cabe704be9a0)
 
 ## How to Use
 
-1. Download and install the app from [Google Play](https://play.google.com) or the [App Store](https://apps.apple.com/).
-2. Open the app and select how many numbers you want to pick.
-3. Tap the "Generate" button to get your lucky numbers.
-4. Wait for the exciting animations to reveal your numbers.
-5. Check if you're a winner, and keep your fingers crossed!
+1. Open the app and select how many numbers you want to pick.
+2. Tap the "Generate" button to get your lucky numbers.
+3. Wait for the exciting animations to reveal your numbers.
+4. Check if you're a winner, and keep your fingers crossed!
 
 ## Contributing
 
@@ -47,10 +48,6 @@ Please refer to the app's specific documentation for platform-specific instructi
 
 ## License
 
-This project is licensed under the [MIT License](LICENSE). Feel free to use and modify the code according to the terms of the license.
+This project is licensed under the MIT License. Feel free to use and modify the code according to the terms of the license.
 
-## Support
-
-If you encounter any issues or have suggestions for improvement, please open a GitHub issue or contact us at support@lottoapp.com.
-
-Happy lotto gaming, and may the odds be ever in your favor!
+Happy lotto gaming, and may the odds be ever in your favour!
