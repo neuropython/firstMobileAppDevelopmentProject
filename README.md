@@ -13,11 +13,12 @@ LottoApp is a simple and fun application that helps you pick lucky numbers for y
 
 ## Screenshots
 
-![screenshot1](https://github.com/neuropython/mobile_app_dev/assets/128989743/7927c004-9e02-4c56-9942-91a067276452)
+![screenshot1](https://github.com/neuropython/mobile_app_dev/assets/128989743/7984829a-dd39-4bb0-91cb-94c6d6b042f1)
 
-![screenshot2](https://github.com/neuropython/mobile_app_dev/assets/128989743/2d345527-a66e-42f5-9677-1ac12582fa33)
+![screenshot2](https://github.com/neuropython/mobile_app_dev/assets/128989743/4c36e081-3fc2-4e1f-8ed1-f34581afa909)
 
-![screenshot3](https://github.com/neuropython/mobile_app_dev/assets/128989743/5c6afcb0-95b5-4029-ad21-cabe704be9a0)
+![screenshot3](https://github.com/neuropython/mobile_app_dev/assets/128989743/bd522981-90cd-4ceb-9e96-bbbb2fc34d65)
+
 
 ## How to Use
 
