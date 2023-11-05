@@ -36,6 +36,7 @@ class ThirdActivity : AppCompatActivity() {
             number1, number2, number3, number4, number5, number6
         )
 
+
         val Button = findViewById<Button>(R.id.button)
         Button.setOnClickListener {
                 val range = 0..5
@@ -62,12 +63,14 @@ class ThirdActivity : AppCompatActivity() {
                             YoYo.with(Techniques.Wobble).duration(3000).playOn(ball)
                         }
                     }
-                    if (numbersArray == winningList) {
+                    val numbersList = numbersArray?.toMutableList() ?: mutableListOf()
+
+                    if (numbersList == winningList) {
                         winningLoosing.text = "YOU WON!!!"
                         YoYo.with(Techniques.Flash).duration(3000).playOn(winningLoosing)
                     } else {
                         winningLoosing.text = "YOU LOST!!!"
-                        YoYo.with(Techniques.Shake).duration(3000).playOn(winningLoosing)
+                        YoYo.with(Techniques.Flash).duration(3000).playOn(winningLoosing)
                     }
 
 

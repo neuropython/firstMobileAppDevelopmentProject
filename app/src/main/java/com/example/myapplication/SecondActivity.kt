@@ -29,7 +29,7 @@ class SecondActivity : AppCompatActivity() {
         val selectButton = findViewById<Button>(R.id.selectButton)
         val getRichButton = findViewById<Button>(R.id.getRichButton)
         getRichButton.isEnabled = false
-        val numbersArray = MutableList<Int>(6) { 0 }
+        val numbersArray = IntArray(6) { 0 }
         var i = 0
         var text = ""
         numbersText.text = text
