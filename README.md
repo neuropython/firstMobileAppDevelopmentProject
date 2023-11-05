@@ -1,6 +1,7 @@
 <h1>LottoApp - Your Lucky Number Picker</h1>
 
-![LottoApp Logo](app_logo.png)
+![Projekt bez nazwy (2)](https://github.com/neuropython/mobile_app_dev/assets/128989743/eef199ff-1825-47d5-bb8d-21852cb470a0)
+
 
 LottoApp is a simple and fun application that helps you pick lucky numbers for your next lotto game. With a user-friendly interface and cool animations, you'll have a great time using this app. Test your luck, see if you've won, and maybe even hit the jackpot!
 
@@ -13,7 +14,7 @@ LottoApp is a simple and fun application that helps you pick lucky numbers for y
 
 ## Screenshots
 
-[screenshot1](https://github.com/neuropython/mobile_app_dev/assets/128989743/7927c004-9e02-4c56-9942-91a067276452)
+![screenshot1](https://github.com/neuropython/mobile_app_dev/assets/128989743/7927c004-9e02-4c56-9942-91a067276452)
 
 ![screenshot2](https://github.com/neuropython/mobile_app_dev/assets/128989743/2d345527-a66e-42f5-9677-1ac12582fa33)
 
