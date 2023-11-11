@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#FFF0CE"
-    tools:context=".SnapShotActivityActivity">
+    tools:context="com.example.myapplication.SnapShotActivityActivity">
 
 
     <pl.droidsonroids.gif.GifImageView

@@ -15,6 +15,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        val intent = intent
 
         val switchView = findViewById<Switch>(R.id.ageswitch)
         val buttonGame = findViewById<Button>(R.id.selectButton)

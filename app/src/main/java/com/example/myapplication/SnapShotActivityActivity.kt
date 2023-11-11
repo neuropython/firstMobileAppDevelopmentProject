@@ -1,11 +1,10 @@
-package com.example.namespace
+package com.example.myapplication
 
 import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import androidx.appcompat.app.AppCompatActivity
-import com.example.myapplication.MainActivity
 import com.example.namespace.R
 
 class SnapShotActivityActivity : AppCompatActivity() {
@@ -18,9 +17,8 @@ class SnapShotActivityActivity : AppCompatActivity() {
 
         Handler(Looper.getMainLooper()).postDelayed({
             // Use an explicit package name to avoid ambiguity
-            val intent = Intent(this@SnapShotActivityActivity, MainActivity::class.java)
+            val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
-            finish() // Optional: Close the current activity after starting MainActivity
         }, delayMillis)
     }
 }
