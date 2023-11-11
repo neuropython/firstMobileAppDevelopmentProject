@@ -54,7 +54,8 @@ class ThirdActivity : AppCompatActivity() {
                     ball.text = "${winningList[i]}"
                     YoYo.with(Techniques.Landing).duration(1000).playOn(ball)
                 i++
-            }}
+            }
+            }
 
 
                 for (number in numbersArray!!) {
@@ -64,6 +65,7 @@ class ThirdActivity : AppCompatActivity() {
                         }
                     }
                     val numbersList = numbersArray?.toMutableList() ?: mutableListOf()
+
 
                     if (numbersList == winningList) {
                         winningLoosing.text = "YOU WON!!!"
@@ -77,7 +79,8 @@ class ThirdActivity : AppCompatActivity() {
                 }
             }
 
-        }}
+        }
+}
 
 
 

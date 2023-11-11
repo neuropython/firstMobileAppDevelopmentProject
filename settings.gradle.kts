@@ -1,10 +1,13 @@
 pluginManagement {
     repositories {
         google()
-        mavenCentral()
+        maven {
+            url = uri("https://plugins.gradle.org/m2/")
+        }
         gradlePluginPortal()
     }
 }
+
 dependencyResolutionManagement {
     repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
     repositories {
@@ -15,4 +18,3 @@ dependencyResolutionManagement {
 
 rootProject.name = "My Application"
 include(":app")
- 
