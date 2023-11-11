@@ -1,6 +1,6 @@
 plugins {
-    id("com.android.application") version "7.0.3"
-    kotlin("android") version "1.5.31"
+    id("com.android.application") version "7.4.2"
+    kotlin("android") version "1.6.21"
 }
 
 android {
@@ -54,5 +54,6 @@ dependencies {
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
     implementation("com.daimajia.easing:library:2.0@aar")
     implementation("com.daimajia.androidanimations:library:2.3@aar")
-    implementation("pl.droidsonroids.gif:android-gif-drawable:1.2.19")
+    implementation ("pl.droidsonroids.gif:android-gif-drawable:1.2.23")
+
 }

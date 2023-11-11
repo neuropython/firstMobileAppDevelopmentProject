@@ -72,7 +72,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="monospace"
-        android:text="Your's numbers"
+        android:text="Your numbers"
         android:textColor="#0174BE"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/getRichButton"
@@ -106,6 +106,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/lotto" />
+        app:srcCompat="@drawable/lotto_gif" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

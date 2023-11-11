@@ -6,9 +6,9 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Switch
-import android.app.package.R
 import android.widget.ImageView as imageView
 import java.io.IOException
+import com.example.namespace.R
 
 
 class MainActivity : AppCompatActivity() {
