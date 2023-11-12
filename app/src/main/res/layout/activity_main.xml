@@ -8,7 +8,7 @@
     tools:context=".MainActivity">
 
 
-
+    <!--        i want this button to be rounded-->
     <Button
         android:id="@+id/selectButton"
         android:layout_width="188dp"
@@ -20,36 +20,17 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
+
         app:layout_constraintStart_toStartOf="parent" />
 
-
-    <EditText
-        android:id="@+id/editTextText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:ems="10"
-        android:fontFamily="monospace"
-        android:hint="name"
-        android:inputType="text"
-        android:selectAllOnFocus="false"
-        android:textAllCaps="false"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-        android:textColor="#0174BE"
-        android:textColorHint="#599EC3"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="375dp"
-        android:layout_height="45dp"
+        android:layout_height="59dp"
         android:layout_marginTop="232dp"
         android:fontFamily="monospace"
-        android:text="Welcome in lotto game, please provide informations about yourself"
+        android:text="Welcome in lotto game, please choose if you already have an account or you want to register"
         android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         android:textColor="#0174BE"
@@ -67,49 +48,11 @@
         android:layout_centerInParent="true"
         tools:ignore="MissingConstraints" />
 
-    <EditText
-        android:id="@+id/editTextTextEmailAddress"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:ems="10"
-        android:fontFamily="monospace"
-        android:hint="e-mail adress"
-        android:inputType="textEmailAddress"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-        android:textColor="#0174BE"
-        android:textColorHint="#599EC3"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/selectButton"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.502"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextText"
-        app:layout_constraintVertical_bias="0.042" />
-
-    <EditText
-        android:id="@+id/editTextPhone"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:fontFamily="monospace"
-        android:hint="phone number"
-        android:inputType="phone"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-        android:textColor="#0174BE"
-        android:textColorHint="#599EC3"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/selectButton"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.502"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextEmailAddress"
-        app:layout_constraintVertical_bias="0.117" />
-
     <Switch
         android:id="@+id/ageswitch"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
         android:background="#FFF0CE"
         android:backgroundTint="#FFF0CE"
         android:textCursorDrawable="@drawable/oval_button_background"
@@ -117,21 +60,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextPhone"
         tools:ignore="UseSwitchCompatOrMaterialXml" />
-
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Are you out of age?"
-        android:textColor="#0174BE"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/ageswitch"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextPhone"
-        app:layout_constraintVertical_bias="0.304" />
 
     <ImageView
         android:id="@+id/imageView3"
@@ -144,4 +73,22 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/lotto" />
+
+    <Button
+        android:id="@+id/button4"
+        android:layout_width="386dp"
+        android:layout_height="46dp"
+        android:text="Login"
+        tools:layout_editor_absoluteX="11dp"
+        tools:layout_editor_absoluteY="457dp" />
+
+
+    <Button
+        android:id="@+id/button5"
+        android:layout_width="381dp"
+        android:layout_height="46dp"
+        android:text="Registation"
+        tools:layout_editor_absoluteX="18dp"
+        tools:layout_editor_absoluteY="393dp" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
