@@ -5,11 +5,11 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
-import com.example.namespace.R
 import android.widget.TextView
 import com.daimajia.androidanimations.library.Techniques
 import com.daimajia.androidanimations.library.YoYo
 import kotlinx.coroutines.runBlocking
+import com.example.namespace.R
 
 class ThirdActivity : AppCompatActivity() {
     @SuppressLint("SetTextI18n")
@@ -40,48 +40,42 @@ class ThirdActivity : AppCompatActivity() {
 
         val Button = findViewById<Button>(R.id.button)
         Button.setOnClickListener {
-                val range = 0..5
-                val winningNumbersList = MutableList(50) { it }
-                val winningList = mutableListOf<Int>()
-                var i = 0
-                for (number in range) {
-                    val random = winningNumbersList.random()
-                    winningNumbersList.remove(random)
-                    winningList.add(random)
-                }
+            val range = 0..5
+            val winningNumbersList = MutableList(50) { it }
+            val winningList = mutableListOf<Int>()
+            var i = 0
+            for (number in range) {
+                val random = winningNumbersList.random()
+                winningNumbersList.remove(random)
+                winningList.add(random)
+            }
             runBlocking {
                 for (ball in numberList) {
                     ball.visibility = View.VISIBLE
                     ball.text = "${winningList[i]}"
                     YoYo.with(Techniques.Landing).duration(1000).playOn(ball)
-                i++
-            }
-            }
+                    i++
+                }}
 
 
-                for (number in numbersArray!!) {
-                    for (ball in numberList) {
-                        if (number == ball.text.toString().toInt()) {
-                            YoYo.with(Techniques.Wobble).duration(3000).playOn(ball)
-                        }
+            for (number in numbersArray!!) {
+                for (ball in numberList) {
+                    if (number == ball.text.toString().toInt()) {
+                        YoYo.with(Techniques.Wobble).duration(3000).playOn(ball)
                     }
-                    val numbersList = numbersArray?.toMutableList() ?: mutableListOf()
-
-
-                    if (numbersList == winningList) {
-                        winningLoosing.text = "YOU WON!!!"
-                        YoYo.with(Techniques.Flash).duration(3000).playOn(winningLoosing)
-                    } else {
-                        winningLoosing.text = "YOU LOST!!!"
-                        YoYo.with(Techniques.Flash).duration(3000).playOn(winningLoosing)
-                    }
-
-
                 }
+                val numbersList = numbersArray?.toMutableList() ?: mutableListOf()
+
+                if (numbersList == winningList) {
+                    winningLoosing.text = "YOU WON!!!"
+                    YoYo.with(Techniques.Flash).duration(3000).playOn(winningLoosing)
+                } else {
+                    winningLoosing.text = "YOU LOST!!!"
+                    YoYo.with(Techniques.Flash).duration(3000).playOn(winningLoosing)
+                }
+
+
             }
-
         }
-}
 
-
-
+    }}

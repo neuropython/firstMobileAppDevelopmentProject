@@ -1,6 +1,8 @@
 plugins {
-    id("com.android.application") version "7.4.2"
-    kotlin("android") version "1.6.21"
+    id("com.android.application") version "8.1.2"
+    kotlin("android") version "1.9.20"
+//    conecting firebase
+    id("com.google.gms.google-services") version "4.4.0"
 }
 
 android {
@@ -46,6 +48,8 @@ dependencies {
     implementation("androidx.appcompat:appcompat:1.6.1")
     implementation("com.google.android.material:material:1.8.0")
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
+//    conecting firebase
+    implementation("com.google.firebase:firebase-database:20.3.0")
 
     // Add more dependencies as needed
 
@@ -54,6 +58,9 @@ dependencies {
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
     implementation("com.daimajia.easing:library:2.0@aar")
     implementation("com.daimajia.androidanimations:library:2.3@aar")
+    implementation("com.nineoldandroids:library:2.4.0")
     implementation ("pl.droidsonroids.gif:android-gif-drawable:1.2.23")
+
+
 
 }
