@@ -18,7 +18,8 @@
         app:iconTint="#2196F3"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/picker1" />
 
     <Button
         android:id="@+id/getRichButton"
@@ -47,24 +48,25 @@
         android:textAlignment="center"
         android:textColor="#0174BE"
         android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/picker1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.487"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView"
+        app:layout_constraintVertical_bias="0.606"
         tools:ignore="MissingConstraints" />
 
     <NumberPicker
         android:id="@+id/picker1"
-        android:layout_width="275dp"
-        android:layout_height="162dp"
+        android:layout_width="273dp"
+        android:layout_height="80dp"
         android:layout_gravity="center"
-        android:layout_marginTop="12dp"
         android:solidColor="#FFF0CE"
-        app:layout_constraintBottom_toTopOf="@+id/selectButton"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.443"
         tools:ignore="MissingConstraints" />
 
     <TextView

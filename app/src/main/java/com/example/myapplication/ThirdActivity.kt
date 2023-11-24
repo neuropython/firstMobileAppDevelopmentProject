@@ -10,6 +10,8 @@ import com.daimajia.androidanimations.library.Techniques
 import com.daimajia.androidanimations.library.YoYo
 import kotlinx.coroutines.runBlocking
 import com.example.namespace.R
+import kotlin.random.Random
+
 
 class ThirdActivity : AppCompatActivity() {
     @SuppressLint("SetTextI18n")
@@ -17,6 +19,7 @@ class ThirdActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_third)
         val intent = intent
+        val random = Random
         val numbersArray = intent.getIntArrayExtra("SELECTNUMBERS")
 
 
@@ -29,6 +32,12 @@ class ThirdActivity : AppCompatActivity() {
         val number4 = findViewById<TextView>(R.id.number4)
         val number5 = findViewById<TextView>(R.id.number5)
         val number6 = findViewById<TextView>(R.id.number6)
+
+        val ListWithThree = mutableListOf<List<Int>>()
+        val ListWithFour = mutableListOf<List<Int>>()
+        val ListWithFive = mutableListOf<List<Int>>()
+        val ListWithSix = mutableListOf<List<Int>>()
+
 
         val winningLoosing = findViewById<TextView>(R.id.WinView)
 
@@ -72,6 +81,50 @@ class ThirdActivity : AppCompatActivity() {
                 } else {
                     winningLoosing.text = "YOU LOST!!!"
                     YoYo.with(Techniques.Flash).duration(3000).playOn(winningLoosing)
+                }
+                fun population() {
+                    val population = 1000000
+                    val populationList = mutableListOf<List<Int>>()
+//                    write random list consisting of six numbers from 1 to 49
+                    for (i in 1..population) {
+                        val randomList = List(6) {
+                            random.nextInt(1, 50) // Generates a random number between 1 (inclusive) and 50 (exclusive)
+                        }
+                        populationList.add(randomList)
+                    }
+                    val winningList = mutableListOf<Int>()
+                    var i = 0
+                    for (number in range) {
+                        val random = winningNumbersList.random()
+                        winningNumbersList.remove(random)
+                        winningList.add(random)
+                    }
+                    populationList.forEach { list ->
+                        var count = 0
+                        winningList.forEach { number ->
+                            if (list.contains(number)) {
+                                count++
+                            }
+                        }
+                        if (count == 3) {
+                            val ListWithThree = mutableListOf<List<Int>>()
+                            ListWithThree.add(list)
+                        }
+                        if (count == 4) {
+                            val ListWithFour= mutableListOf<List<Int>>()
+                            ListWithFour.add(list)
+                        }
+                        if (count == 5) {
+                            val ListWithFive = mutableListOf<List<Int>>()
+                            ListWithFive.add(list)
+                        }
+                        if (count == 6) {
+                            val ListWithSix = mutableListOf<List<Int>>()
+                            ListWithSix.add(list)
+                        }
+                    }
+
+
                 }
 
 

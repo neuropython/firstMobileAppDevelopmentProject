@@ -13,8 +13,8 @@
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="375dp"
-        android:layout_height="59dp"
+        android:layout_width="313dp"
+        android:layout_height="103dp"
         android:fontFamily="monospace"
         android:text="Welcome in lotto game, please choose if you already have an account or you want to register"
         android:textAlignment="center"
@@ -50,20 +50,21 @@
 
     <Button
         android:id="@+id/loginButton"
-        android:layout_width="386dp"
-        android:layout_height="46dp"
+        android:layout_width="377dp"
+        android:layout_height="101dp"
         android:layout_marginTop="8dp"
         android:text="Login"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.48"
+        app:layout_constraintHorizontal_bias="0.466"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:layout_constraintVertical_bias="0.705" />
 
     <Button
         android:id="@+id/registerButton"
-        android:layout_width="381dp"
-        android:layout_height="46dp"
+        android:layout_width="378dp"
+        android:layout_height="106dp"
         android:text="Registation"
         app:layout_constraintBottom_toTopOf="@+id/loginButton"
         app:layout_constraintEnd_toEndOf="parent"
