@@ -6,129 +6,169 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Button
 import android.widget.TextView
-import com.daimajia.androidanimations.library.Techniques
-import com.daimajia.androidanimations.library.YoYo
-import kotlinx.coroutines.runBlocking
 import com.example.namespace.R
+import kotlinx.coroutines.runBlocking
+import java.util.*
+import kotlin.collections.ArrayList
 import kotlin.random.Random
+import android.animation.ObjectAnimator
+import android.view.animation.AccelerateInterpolator
+import java.lang.Math.round
+import kotlin.math.roundToInt
 
 
 class ThirdActivity : AppCompatActivity() {
+
+    private val numberList by lazy {
+        listOf(
+            findViewById<TextView>(R.id.number1),
+            findViewById<TextView>(R.id.number2),
+            findViewById<TextView>(R.id.number3),
+            findViewById<TextView>(R.id.number4),
+            findViewById<TextView>(R.id.number5),
+            findViewById<TextView>(R.id.number6)
+        )
+    }
+
+    private val winningLoosing by lazy {
+        findViewById<TextView>(R.id.WinView)
+    }
+
+    private val rotationAnimators = mutableListOf<ObjectAnimator>()
+
     @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_third)
+
         val intent = intent
-        val random = Random
-        val numbersArray = intent.getIntArrayExtra("SELECTNUMBERS")
-
-
+        val numbersArray = intent.getIntArrayExtra("SELECTNUMBERS") ?: intArrayOf()
         val numberText = findViewById<TextView>(R.id.numView)
-        numberText.text = "Here are my numbers: \n ${numbersArray?.joinToString(" ")}"
+        numberText.text = "Here are my numbers: \n ${numbersArray.joinToString(" ")}"
 
-        val number1 = findViewById<TextView>(R.id.number1)
-        val number2 = findViewById<TextView>(R.id.number2)
-        val number3 = findViewById<TextView>(R.id.number3)
-        val number4 = findViewById<TextView>(R.id.number4)
-        val number5 = findViewById<TextView>(R.id.number5)
-        val number6 = findViewById<TextView>(R.id.number6)
-
-        val ListWithThree = mutableListOf<List<Int>>()
-        val ListWithFour = mutableListOf<List<Int>>()
-        val ListWithFive = mutableListOf<List<Int>>()
-        val ListWithSix = mutableListOf<List<Int>>()
-
-
-        val winningLoosing = findViewById<TextView>(R.id.WinView)
-
-
-        val numberList = mutableListOf<TextView>(
-            number1, number2, number3, number4, number5, number6
-        )
-
-
-        val Button = findViewById<Button>(R.id.button)
-        Button.setOnClickListener {
+        val button = findViewById<Button>(R.id.button)
+        button.setOnClickListener {
             val range = 0..5
             val winningNumbersList = MutableList(50) { it }
             val winningList = mutableListOf<Int>()
-            var i = 0
+
             for (number in range) {
                 val random = winningNumbersList.random()
                 winningNumbersList.remove(random)
                 winningList.add(random)
             }
-            runBlocking {
-                for (ball in numberList) {
-                    ball.visibility = View.VISIBLE
-                    ball.text = "${winningList[i]}"
-                    YoYo.with(Techniques.Landing).duration(1000).playOn(ball)
-                    i++
-                }}
+
+            animateBalls(winningList, numbersArray)
+
+            val count = winningList.count { numbersArray.contains(it) }
+
+            animateFadeIn(winningLoosing)
 
 
-            for (number in numbersArray!!) {
-                for (ball in numberList) {
-                    if (number == ball.text.toString().toInt()) {
-                        YoYo.with(Techniques.Wobble).duration(3000).playOn(ball)
-                    }
-                }
-                val numbersList = numbersArray?.toMutableList() ?: mutableListOf()
-
-                if (numbersList == winningList) {
-                    winningLoosing.text = "YOU WON!!!"
-                    YoYo.with(Techniques.Flash).duration(3000).playOn(winningLoosing)
-                } else {
-                    winningLoosing.text = "YOU LOST!!!"
-                    YoYo.with(Techniques.Flash).duration(3000).playOn(winningLoosing)
-                }
-                fun population() {
-                    val population = 1000000
-                    val populationList = mutableListOf<List<Int>>()
-//                    write random list consisting of six numbers from 1 to 49
-                    for (i in 1..population) {
-                        val randomList = List(6) {
-                            random.nextInt(1, 50) // Generates a random number between 1 (inclusive) and 50 (exclusive)
-                        }
-                        populationList.add(randomList)
-                    }
-                    val winningList = mutableListOf<Int>()
-                    var i = 0
-                    for (number in range) {
-                        val random = winningNumbersList.random()
-                        winningNumbersList.remove(random)
-                        winningList.add(random)
-                    }
-                    populationList.forEach { list ->
-                        var count = 0
-                        winningList.forEach { number ->
-                            if (list.contains(number)) {
-                                count++
-                            }
-                        }
-                        if (count == 3) {
-                            val ListWithThree = mutableListOf<List<Int>>()
-                            ListWithThree.add(list)
-                        }
-                        if (count == 4) {
-                            val ListWithFour= mutableListOf<List<Int>>()
-                            ListWithFour.add(list)
-                        }
-                        if (count == 5) {
-                            val ListWithFive = mutableListOf<List<Int>>()
-                            ListWithFive.add(list)
-                        }
-                        if (count == 6) {
-                            val ListWithSix = mutableListOf<List<Int>>()
-                            ListWithSix.add(list)
-                        }
-                    }
-
-
+            val population = 100000
+            for (i in 0..population) {
+                val winningNumbersList = MutableList(50) { it }
+                val populationList = mutableListOf<Int>()
+                for (number in range) {
+                    val random = winningNumbersList.random()
+                    winningNumbersList.remove(random)
+                    winningList.add(random)
                 }
 
+            }
+            val threeNumbers = mutableListOf<List<Int>>()
+            val fourNumbers = mutableListOf<List<Int>>()
+            val fiveNumbers = mutableListOf<List<Int>>()
+            val sixNumbers = mutableListOf<List<Int>>()
+
+            val populationList = mutableListOf<List<Int>>()
+            populationList.forEach { list ->
+                when (winningList.count { list.contains(it) }) {
+                    3 -> threeNumbers.add(list)
+                    4 -> fourNumbers.add(list)
+                    5 -> fiveNumbers.add(list)
+                    6 -> sixNumbers.add(list)
+                }
+            }
+            val threeNumbersProbability = threeNumbers.size.toDouble() / population
+            val fourNumbersProbability = fourNumbers.size.toDouble() / population
+            val fiveNumbersProbability = fiveNumbers.size.toDouble() / population
+            val sixNumbersProbability = sixNumbers.size.toDouble() / population
+
+            val threeNumbersPrice = if (threeNumbersProbability > 0) (100000.0 / threeNumbersProbability).roundToInt() else 0.0
+            val fourNumbersPrice = if (fourNumbersProbability > 0) (100000.0 / fourNumbersProbability).roundToInt() else 0.0
+            val fiveNumbersPrice = if (fiveNumbersProbability > 0) (1000000.0 / fiveNumbersProbability).roundToInt() else 0.0
+            val sixNumbersPrice = if (sixNumbersProbability > 0) (10000000.0 / sixNumbersProbability).roundToInt() else 0.0
+
+            when (count) {
+                3 -> winningLoosing.text ="You won $threeNumbersPrice"
+                4 -> winningLoosing.text = "You won $fourNumbersPrice"
+                5 -> winningLoosing.text = "You won $fiveNumbersPrice"
+                6 -> winningLoosing.text ="You won $sixNumbersPrice"
+                else -> {
+                    winningLoosing.text = "You lost"
+                }
 
             }
         }
+    }
 
-    }}
+    private fun animateBalls(winningList: List<Int>, numbersArray: IntArray) {
+        // Stop any existing rotation animations
+        stopRotationAnimations()
+
+        for ((i, ball) in numberList.withIndex()) {
+            ball.visibility = View.VISIBLE
+            ball.text = "${winningList[i]}"
+
+            val ballNumber = ball.text.toString().toIntOrNull()
+
+            if (ballNumber != null && numbersArray.contains(ballNumber)) {
+                animateFadeIn(ball)
+                animateRotation(ball)
+            } else {
+                resetAnimations(ball)
+            }
+        }
+    }
+
+    private fun animateFadeIn(view: View) {
+        val fadeIn = ObjectAnimator.ofFloat(view, "alpha", 0f, 1f)
+        fadeIn.duration = 1000
+        fadeIn.interpolator = AccelerateInterpolator()
+        fadeIn.start()
+    }
+
+    private fun animateRotation(view: View) {
+        val rotation = ObjectAnimator.ofFloat(view, "rotation", 0f, 360f)
+        rotation.duration = 1000
+        rotation.repeatMode = ObjectAnimator.REVERSE
+        rotation.repeatCount = ObjectAnimator.INFINITE
+        rotation.start()
+
+        // Save the rotation animator instance
+        rotationAnimators.add(rotation)
+    }
+
+    private fun resetAnimations(view: View) {
+        view.alpha = 1f
+        view.rotation = 0f
+    }
+
+    private fun stopRotationAnimations() {
+        // Stop any existing rotation animations
+        for (animator in rotationAnimators) {
+            animator.cancel()
+        }
+        // Clear the list
+        rotationAnimators.clear()
+    }
+
+    private fun animateView(view: View) {
+        resetAnimations(view)
+        val shake = ObjectAnimator.ofFloat(view, "translationX", 0f, 25f, -25f, 25f, -25f, 15f, -15f, 6f, -6f, 0f)
+        shake.duration = 1000
+        shake.interpolator = AccelerateInterpolator()
+        shake.start()
+    }
+}
