@@ -103,13 +103,30 @@ class ThirdActivity : AppCompatActivity() {
             when (count) {
                 3 -> {
                     winningLoosing.text ="You won $threeNumbersPrice"
-                    value_adder(UserEmail, threeNumbersPrice)
+                    if (UserEmail != null) {
+                        value_adder(UserEmail, threeNumbersPrice)
+                    }
                 }
-                4 -> {winningLoosing.text = "You won $fourNumbersPrice"}
-                5 -> {winningLoosing.text = "You won $fiveNumbersPrice"}
-                6 -> {winningLoosing.text ="You won $sixNumbersPrice"}
+                4 -> {  winningLoosing.text ="You won $fourNumbersPrice"
+                    if (UserEmail != null) {
+                        value_adder(UserEmail, fourNumbersPrice)
+                    }
+                }
+                5 -> {winningLoosing.text ="You won $fiveNumbersPrice"
+                    if (UserEmail != null) {
+                        value_adder(UserEmail, fiveNumbersPrice)
+                    }
+                }
+                6 -> {winningLoosing.text ="You won $sixNumbersPrice"
+                    if (UserEmail != null) {
+                        value_adder(UserEmail, sixNumbersPrice)
+                    }
+                }
                 else -> {
                     winningLoosing.text = "You lost"
+                    if (UserEmail != null) {
+                    value_adder(UserEmail, 0)
+                    }
                 }
 
             }
@@ -117,11 +134,10 @@ class ThirdActivity : AppCompatActivity() {
     }
 
 
-    private fun value_adder(UserEmail: String, winning_number: Comparable & Number) {
+    private fun value_adder(UserEmail: String, winning_number: Number) {
         val db = Firebase.firestore
         db.collection("Win_data")
             .add(UserEmail)
-
     }
     private fun animateBalls(winningList: List<Int>, numbersArray: IntArray) {
         // Stop any existing rotation animations

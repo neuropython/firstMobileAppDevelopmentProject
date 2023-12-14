@@ -36,11 +36,7 @@ class RegisterActivity : AppCompatActivity() {
 
 //        write a function that enables a button if the switch is checked
         switch.setOnClickListener {
-            if (switch.isChecked) {
-                register.isEnabled = true
-            } else {
-                register.isEnabled = false
-            }
+            register.isEnabled = switch.isChecked
         }
 
 //
@@ -55,7 +51,6 @@ class RegisterActivity : AppCompatActivity() {
 
         val DatabaseReference: DatabaseReference = Firebase.database.reference
         val userId = DatabaseReference.push().key.toString()
-//        create click listener for register button
         val databaseReference = FirebaseDatabase.getInstance().reference
 
 
@@ -125,7 +120,7 @@ class RegisterActivity : AppCompatActivity() {
                 }
 
                 else -> {
-                    val email_to_db = email_text.replace(".", ",")
+                    email_text.replace(".", ",")
                     val intent = Intent(this, LogInActivity::class.java)
                     startActivity(intent)
 
