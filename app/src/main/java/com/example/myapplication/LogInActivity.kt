@@ -42,6 +42,7 @@ class LogInActivity : AppCompatActivity() {
                         email.error = "Email is not recognized" }
                     else {
                     if (passwordText == passwordDbText) {
+                        intent.putExtra("eMail", emailText)
                         startActivity(intent)
                         }
                     else {

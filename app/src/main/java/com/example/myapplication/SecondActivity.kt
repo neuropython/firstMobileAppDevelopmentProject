@@ -54,6 +54,7 @@ class SecondActivity : AppCompatActivity() {
 
         getRichButton.setOnClickListener {
                 val intent = Intent(this,ThirdActivity::class.java )
+                intent.putExtra("EMAIL",email)
                 intent.putExtra("SELECTNUMBERS",numbersArray)
                 startActivity(intent)
 //            Make class

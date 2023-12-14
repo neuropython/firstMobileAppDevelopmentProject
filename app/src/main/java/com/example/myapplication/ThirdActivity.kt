@@ -1,19 +1,18 @@
 package com.example.myapplication
 
+import android.animation.ObjectAnimator
 import android.annotation.SuppressLint
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.provider.ContactsContract.CommonDataKinds.Email
 import android.view.View
+import android.view.animation.AccelerateInterpolator
 import android.widget.Button
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 import com.example.namespace.R
-import kotlinx.coroutines.runBlocking
+import com.google.firebase.Firebase
+import com.google.firebase.firestore.firestore
 import java.util.*
-import kotlin.collections.ArrayList
-import kotlin.random.Random
-import android.animation.ObjectAnimator
-import android.view.animation.AccelerateInterpolator
-import java.lang.Math.round
 import kotlin.math.roundToInt
 
 
@@ -42,6 +41,7 @@ class ThirdActivity : AppCompatActivity() {
         setContentView(R.layout.activity_third)
 
         val intent = intent
+        val UserEmail = intent.getStringExtra("EMAIL")
         val numbersArray = intent.getIntArrayExtra("SELECTNUMBERS") ?: intArrayOf()
         val numberText = findViewById<TextView>(R.id.numView)
         numberText.text = "Here are my numbers: \n ${numbersArray.joinToString(" ")}"
@@ -101,10 +101,13 @@ class ThirdActivity : AppCompatActivity() {
             val sixNumbersPrice = if (sixNumbersProbability > 0) (10000000.0 / sixNumbersProbability).roundToInt() else 0.0
 
             when (count) {
-                3 -> winningLoosing.text ="You won $threeNumbersPrice"
-                4 -> winningLoosing.text = "You won $fourNumbersPrice"
-                5 -> winningLoosing.text = "You won $fiveNumbersPrice"
-                6 -> winningLoosing.text ="You won $sixNumbersPrice"
+                3 -> {
+                    winningLoosing.text ="You won $threeNumbersPrice"
+                    value_adder(UserEmail, threeNumbersPrice)
+                }
+                4 -> {winningLoosing.text = "You won $fourNumbersPrice"}
+                5 -> {winningLoosing.text = "You won $fiveNumbersPrice"}
+                6 -> {winningLoosing.text ="You won $sixNumbersPrice"}
                 else -> {
                     winningLoosing.text = "You lost"
                 }
@@ -113,6 +116,13 @@ class ThirdActivity : AppCompatActivity() {
         }
     }
 
+
+    private fun value_adder(UserEmail: String, winning_number: Comparable & Number) {
+        val db = Firebase.firestore
+        db.collection("Win_data")
+            .add(UserEmail)
+
+    }
     private fun animateBalls(winningList: List<Int>, numbersArray: IntArray) {
         // Stop any existing rotation animations
         stopRotationAnimations()
