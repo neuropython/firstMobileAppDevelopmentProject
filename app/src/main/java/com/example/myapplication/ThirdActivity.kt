@@ -2,16 +2,19 @@ package com.example.myapplication
 
 import android.animation.ObjectAnimator
 import android.annotation.SuppressLint
+import android.content.ContentValues.TAG
 import android.os.Bundle
 import android.provider.ContactsContract.CommonDataKinds.Email
+import android.util.Log
 import android.view.View
 import android.view.animation.AccelerateInterpolator
 import android.widget.Button
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.example.namespace.R
-import com.google.firebase.Firebase
-import com.google.firebase.firestore.firestore
+import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.ktx.Firebase
+import com.google.firebase.firestore.ktx.firestore
 import java.util.*
 import kotlin.math.roundToInt
 
@@ -41,7 +44,7 @@ class ThirdActivity : AppCompatActivity() {
         setContentView(R.layout.activity_third)
 
         val intent = intent
-        val UserEmail = intent.getStringExtra("EMAIL")
+        val UserEmail = intent.getStringExtra("EMAIL") ?: ""
         val numbersArray = intent.getIntArrayExtra("SELECTNUMBERS") ?: intArrayOf()
         val numberText = findViewById<TextView>(R.id.numView)
         numberText.text = "Here are my numbers: \n ${numbersArray.joinToString(" ")}"
@@ -103,30 +106,21 @@ class ThirdActivity : AppCompatActivity() {
             when (count) {
                 3 -> {
                     winningLoosing.text ="You won $threeNumbersPrice"
-                    if (UserEmail != null) {
-                        value_adder(UserEmail, threeNumbersPrice)
-                    }
+                        value_adder(UserEmail, threeNumbersPrice,numbersArray,winningList)
                 }
                 4 -> {  winningLoosing.text ="You won $fourNumbersPrice"
-                    if (UserEmail != null) {
-                        value_adder(UserEmail, fourNumbersPrice)
-                    }
+                        value_adder(UserEmail, fourNumbersPrice,numbersArray,winningList)
                 }
                 5 -> {winningLoosing.text ="You won $fiveNumbersPrice"
-                    if (UserEmail != null) {
-                        value_adder(UserEmail, fiveNumbersPrice)
-                    }
+                        value_adder(UserEmail, fiveNumbersPrice,numbersArray,winningList)
                 }
                 6 -> {winningLoosing.text ="You won $sixNumbersPrice"
-                    if (UserEmail != null) {
-                        value_adder(UserEmail, sixNumbersPrice)
-                    }
+                        value_adder(UserEmail, sixNumbersPrice,numbersArray,winningList)
                 }
                 else -> {
                     winningLoosing.text = "You lost"
-                    if (UserEmail != null) {
-                    value_adder(UserEmail, 0)
-                    }
+                        value_adder(UserEmail, 0,numbersArray,winningList)
+
                 }
 
             }
@@ -134,10 +128,23 @@ class ThirdActivity : AppCompatActivity() {
     }
 
 
-    private fun value_adder(UserEmail: String, winning_number: Number) {
-        val db = Firebase.firestore
-        db.collection("Win_data")
+    private fun value_adder(UserEmail: String, winning_number: Number, numbersArray: IntArray,
+                            winningList: List<Int>) {
+        val db = FirebaseFirestore.getInstance();
+        val numbersList = numbersArray.toList()
+        val UserEmail = hashMapOf(
+            "UserEmail" to UserEmail,
+            "Prize" to winning_number,
+            "User_Numbers" to numbersList,
+        )
+        db.collection("users")
             .add(UserEmail)
+            .addOnSuccessListener { documentReference ->
+                Log.d(TAG, "DocumentSnapshot added with ID: ${documentReference.id}")
+            }
+            .addOnFailureListener { e ->
+                Log.w(TAG, "Error adding document", e)
+            }
     }
     private fun animateBalls(winningList: List<Int>, numbersArray: IntArray) {
         // Stop any existing rotation animations

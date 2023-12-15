@@ -26,7 +26,7 @@ import java.util.regex.Pattern
 
 class RegisterActivity : AppCompatActivity() {
 
-    @SuppressLint("UseSwitchCompatOrMaterialCode")
+    @SuppressLint("UseSwitchCompatOrMaterialCode", "RestrictedApi")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register)
@@ -36,7 +36,11 @@ class RegisterActivity : AppCompatActivity() {
 
 //        write a function that enables a button if the switch is checked
         switch.setOnClickListener {
-            register.isEnabled = switch.isChecked
+            if (switch.isChecked) {
+                register.isEnabled = true
+            } else {
+                register.isEnabled = false
+            }
         }
 
 //
@@ -51,6 +55,7 @@ class RegisterActivity : AppCompatActivity() {
 
         val DatabaseReference: DatabaseReference = Firebase.database.reference
         val userId = DatabaseReference.push().key.toString()
+//        create click listener for register button
         val databaseReference = FirebaseDatabase.getInstance().reference
 
 
@@ -120,7 +125,9 @@ class RegisterActivity : AppCompatActivity() {
                 }
 
                 else -> {
-                    email_text.replace(".", ",")
+                    val email_to_db = email_text.replace(".", ",")
+                    val user = User(name_text, email_text, phone_text, password_text)
+                    databaseReference.child("user").child(email_to_db).setValue(user)
                     val intent = Intent(this, LogInActivity::class.java)
                     startActivity(intent)
 
@@ -128,4 +135,17 @@ class RegisterActivity : AppCompatActivity() {
             }
         }
     }
-}
+
+    class User(
+        val name: String?,
+        val email: String?,
+        val phone: String?,
+        val password: String?
+    ) {
+        // Default constructor required for Firebase
+        constructor() : this("", "", "", "")
+    }
+
+    }
+
+

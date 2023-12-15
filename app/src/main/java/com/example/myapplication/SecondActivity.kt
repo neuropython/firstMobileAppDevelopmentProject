@@ -15,11 +15,11 @@ class SecondActivity : AppCompatActivity() {
         setContentView(R.layout.activity_second)
         val intent = intent
         val name = intent.getStringExtra("NAME")
-        val email = intent.getStringExtra("EMAIL")
+        val email = intent.getStringExtra("eMail")
         val phone = intent.getStringExtra("PHONE")
 
         val welcomeText = findViewById<TextView>(R.id.textView2)
-        welcomeText.text = "$name, please select your lucky numbers!"
+        welcomeText.text = "$email, please select your lucky numbers!"
 
         val numbersText = findViewById<TextView>(R.id.selectedNmbView)
 
