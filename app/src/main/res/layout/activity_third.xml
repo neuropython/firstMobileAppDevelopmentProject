@@ -56,8 +56,9 @@
 
     <Button
         android:id="@+id/button"
-        android:layout_width="279dp"
-        android:layout_height="87dp"
+        android:layout_width="146dp"
+        android:layout_height="77dp"
+        android:layout_marginTop="28dp"
         android:backgroundTint="#0C356A"
         android:fontFamily="monospace"
         android:stateListAnimator="@android:anim/decelerate_interpolator"
@@ -69,7 +70,28 @@
         android:typeface="monospace"
         app:cornerRadius="@android:dimen/thumbnail_width"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintHorizontal_bias="0.098"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView2"
+        app:strokeColor="#0C356A" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="146dp"
+        android:layout_height="77dp"
+        android:layout_marginTop="28dp"
+        android:backgroundTint="#0C356A"
+        android:fontFamily="monospace"
+        android:stateListAnimator="@android:anim/decelerate_interpolator"
+        android:text="GAMES"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:typeface="monospace"
+        app:cornerRadius="@android:dimen/thumbnail_width"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.901"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView2"
         app:strokeColor="#0C356A" />
@@ -144,8 +166,8 @@
 
     <TextView
         android:id="@+id/WinView"
-        android:layout_width="314dp"
-        android:layout_height="182dp"
+        android:layout_width="348dp"
+        android:layout_height="197dp"
         android:fontFamily="monospace"
         android:gravity="center"
         android:textAlignment="center"

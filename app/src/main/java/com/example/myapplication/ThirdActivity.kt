@@ -3,6 +3,7 @@ package com.example.myapplication
 import android.animation.ObjectAnimator
 import android.annotation.SuppressLint
 import android.content.ContentValues.TAG
+import android.content.Intent
 import android.os.Bundle
 import android.provider.ContactsContract.CommonDataKinds.Email
 import android.util.Log
@@ -32,6 +33,7 @@ class ThirdActivity : AppCompatActivity() {
         )
     }
 
+
     private val winningLoosing by lazy {
         findViewById<TextView>(R.id.WinView)
     }
@@ -50,6 +52,14 @@ class ThirdActivity : AppCompatActivity() {
         numberText.text = "Here are my numbers: \n ${numbersArray.joinToString(" ")}"
 
         val button = findViewById<Button>(R.id.button)
+        val games_button = findViewById<Button>(R.id.button2)
+
+        games_button.setOnClickListener {
+            val intent = Intent(this, RecycleViewActivity::class.java)
+            intent.putExtra("SELECTNUMBERS",numbersArray)
+            intent.putExtra("EMAIL",UserEmail)
+            startActivity(intent)
+        }
         button.setOnClickListener {
             val range = 0..5
             val winningNumbersList = MutableList(50) { it }
@@ -132,13 +142,12 @@ class ThirdActivity : AppCompatActivity() {
                             winningList: List<Int>) {
         val db = FirebaseFirestore.getInstance();
         val numbersList = numbersArray.toList()
-        val UserEmail = hashMapOf(
-            "UserEmail" to UserEmail,
+        val userData = hashMapOf(
             "Prize" to winning_number,
             "User_Numbers" to numbersList,
         )
-        db.collection("users")
-            .add(UserEmail)
+        db.collection(UserEmail.toString())
+            .add(userData)
             .addOnSuccessListener { documentReference ->
                 Log.d(TAG, "DocumentSnapshot added with ID: ${documentReference.id}")
             }
